@@ -124,10 +124,11 @@ const ListingDetails = () => {
 
         <div className="profile">
           <img
-            src={`https://studenthive1.onrender.com/${listing.creator.profileImagePath.replace(
-              "public",
-              ""
-            )}`}
+            src={`https://studenthive1.onrender.com/${
+              listing.creator.profileImagePath
+                ? listing.creator.profileImagePath.replace(/^public\//, "") // Ensure proper path handling
+                : "default-profile.jpg"
+            }`}
           />
           <h3>
             Hosted by {listing.creator.firstName} {listing.creator.lastName}
